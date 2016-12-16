@@ -30,6 +30,10 @@ RUN git clone https://github.com/dgyoo/fblualib.git /home/$USER_NAME/fblualib &&
 	. /home/$USER_NAME/torch/install/bin/torch-activate && \
 	./install_all.sh 
 
+# Install loadcaffe.
+RUN apt-get install libprotobuf-dev protobuf-compiler && \
+	CC=gcc-5 CXX=g++-5 luarocks install loadcaffe
+
 # Install utils.
 RUN apt-get -y update && \
 	apt-get -y install vim git wget
