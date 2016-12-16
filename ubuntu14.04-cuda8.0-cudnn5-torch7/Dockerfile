@@ -1,4 +1,5 @@
-# Start with an image with builtin cuda/cudnn officially provided by Nvidia.
+# Start with an utuntu 14.04 image 
+# with builtin cuda/cudnn officially provided by Nvidia.
 FROM nvidia/cuda:8.0-cudnn5-devel
 
 # Set account. This script 
@@ -32,7 +33,7 @@ RUN git clone https://github.com/dgyoo/fblualib.git /home/$USER_NAME/fblualib &&
 
 # Install loadcaffe.
 RUN apt-get install libprotobuf-dev protobuf-compiler && \
-	CC=gcc-5 CXX=g++-5 luarocks install loadcaffe
+	luarocks install loadcaffe
 
 # Install utils.
 RUN apt-get -y update && \
