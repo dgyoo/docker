@@ -32,7 +32,7 @@ RUN git clone https://github.com/dgyoo/fblualib.git /home/$USER_NAME/fblualib &&
 	./install_all.sh 
 
 # Install loadcaffe.
-RUN apt-get install libprotobuf-dev protobuf-compiler && \
+RUN apt-get -y install libprotobuf-dev protobuf-compiler && \
 	luarocks install loadcaffe
 
 # Install utils.
