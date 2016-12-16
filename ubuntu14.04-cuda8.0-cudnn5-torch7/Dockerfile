@@ -33,6 +33,7 @@ RUN git clone https://github.com/dgyoo/fblualib.git /home/$USER_NAME/fblualib &&
 
 # Install loadcaffe.
 RUN apt-get -y install libprotobuf-dev protobuf-compiler && \
+	. /home/$USER_NAME/torch/install/bin/torch-activate && \
 	luarocks install loadcaffe
 
 # Install utils.
