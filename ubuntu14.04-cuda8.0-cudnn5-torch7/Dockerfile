@@ -1,6 +1,6 @@
 # Start with an utuntu 14.04 image 
 # with builtin cuda/cudnn officially provided by Nvidia.
-FROM nvidia/cuda:8.0-cudnn5-devel
+FROM nvidia/cuda:8.0-cudnn5-devel-ubuntu14.04
 
 # Set account. This script 
 # 1) creates a user account in this docker image and
