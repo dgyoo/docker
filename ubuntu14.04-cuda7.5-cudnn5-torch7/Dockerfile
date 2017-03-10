@@ -9,10 +9,7 @@ FROM nvidia/cuda:7.5-cudnn5-devel-ubuntu14.04
 #    by make them share the same user/group id and name.
 ENV USER_NAME=dgyoo
 ENV USER_ID=1000
-ENV GROUP_NAME=dgyoo
-ENV GROUP_ID=1000
-RUN groupadd -r $GROUP_NAME -g $GROUP_ID && \
-	useradd -u $USER_ID -g $USER_NAME -m -s /bin/bash $USER_NAME
+RUN useradd -u $USER_ID -s /bin/bash -m $USER_NAME
 
 # Install torch.
 # This will be located in user home.
@@ -42,4 +39,4 @@ RUN apt-get -y update && \
 
 # Set my taste.
 RUN echo "\n#Added by me.\ncd ~/\nalias v='vim'\n. ~/torch/install/bin/torch-activate" >> /home/$USER_NAME/.bashrc && \
-	echo "syntax on\nfiletype indent plugin on\nset autoindent\nset nu\nset hlsearch\nset tabstop=3" >> /home/$USER_NAME/.vimrc
+	echo "set nu\nset hlsearch\nfiletype plugin indent on\n\" show existing tab with 4 spaces width\nset tabstop=4\n\" when indenting with >, use 4 spaces width\nset shiftwidth=4\n\" on pressing tab, insert 4 spaces\nset expandtab" >> /home/$USER_NAME/.vimrc
