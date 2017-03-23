@@ -8,10 +8,10 @@ echo -e "\n# myalias." >> ~/.bashrc
 echo -e "alias docker='nvidia-docker'" >> ~/.bashrc
 for i in ${!DOCKER_IMAGE_NAME[*]}
 do
-    echo -e "alias ${DOCKER_IMAGE_ALIAS[$i]}='nvidia-docker run --rm -it -u $DOCKER_USER_NAME \ " >> ~/.bashrc
-    echo -e "    -v ~/workspace/:/home/$DOCKER_USER_NAME/workspace \ " >> ~/.bashrc
+    echo -e "alias ${DOCKER_IMAGE_ALIAS[$i]}='nvidia-docker run --rm -it -u $DOCKER_USER_NAME \\" >> ~/.bashrc
+    echo -e "    -v ~/workspace/:/home/$DOCKER_USER_NAME/workspace \\" >> ~/.bashrc
     echo -e "    ${DOCKER_IMAGE_NAME[$i]}'" >> ~/.bashrc
-    echo -e "alias ${DOCKER_IMAGE_ALIAS[$i]}-root='nvidia-docker run -it \ " >> ~/.bashrc
+    echo -e "alias ${DOCKER_IMAGE_ALIAS[$i]}-root='nvidia-docker run -it \\" >> ~/.bashrc
     echo -e "    ${DOCKER_IMAGE_NAME[$i]}'" >> ~/.bashrc
 done
 
