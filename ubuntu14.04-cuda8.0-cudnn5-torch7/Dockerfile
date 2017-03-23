@@ -8,7 +8,7 @@ FROM nvidia/cuda:8.0-cudnn5-devel-ubuntu14.04
 #    and also authorize this image user to read/write files created by the host user,
 #    by make them share the same user/group id and name.
 ENV USER_NAME=dgyoo
-ENV USER_ID=1000
+ENV USER_ID=2029
 RUN useradd -u $USER_ID -s /bin/bash -m $USER_NAME
 
 # Install torch.
@@ -37,6 +37,6 @@ RUN apt-get -y install libprotobuf-dev protobuf-compiler && \
 RUN apt-get -y update && \
 	apt-get -y install vim git wget
 
-# Set my taste.
-RUN echo "\n#Added by me.\ncd ~/\nalias v='vim'\n. ~/torch/install/bin/torch-activate" >> /home/$USER_NAME/.bashrc && \
+# Personal setup.
+RUN echo "\n# mysetup.\ncd ~/\nalias v='vim'\n. ~/torch/install/bin/torch-activate" >> /home/$USER_NAME/.bashrc && \
 	echo "set nu\nset hlsearch\nfiletype plugin indent on\n\" show existing tab with 4 spaces width\nset tabstop=4\n\" when indenting with >, use 4 spaces width\nset shiftwidth=4\n\" on pressing tab, insert 4 spaces\nset expandtab" >> /home/$USER_NAME/.vimrc

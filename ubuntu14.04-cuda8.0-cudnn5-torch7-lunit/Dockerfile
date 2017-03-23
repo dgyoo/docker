@@ -46,6 +46,6 @@ RUN apt-get -y update && \
 RUN apt-get -y update && \
 	apt-get -y install vim git wget
 
-# Set my taste.
-RUN echo "\n#Added by me.\ncd ~/\nalias v='vim'\n. ~/torch/install/bin/torch-activate" >> /home/$USER_NAME/.bashrc && \
+# Personal setup.
+RUN echo "\n# mysetup.\ncd ~/\nalias v='vim'\n. ~/torch/install/bin/torch-activate" >> /home/$USER_NAME/.bashrc && \
 	echo "set nu\nset hlsearch\nfiletype plugin indent on\n\" show existing tab with 4 spaces width\nset tabstop=4\n\" when indenting with >, use 4 spaces width\nset shiftwidth=4\n\" on pressing tab, insert 4 spaces\nset expandtab" >> /home/$USER_NAME/.vimrc
