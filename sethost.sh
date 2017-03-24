@@ -2,7 +2,7 @@
 
 # Set docker.
 DOCKER_USER_NAME="dgyoo"
-DOCKER_IMAGE_NAME=("dgyoo/ubuntu14.04-cuda8.0-cudnn5-torch7:latest" "dgyoo/ubuntu14.04-cuda8.0-cudnn5-tf:latest")
+DOCKER_IMAGE_NAME=("dgyoo/ubuntu14.04-cuda8.0-cudnn5-torch7:latest" "dgyoo/ubuntu14.04-cuda8.0-cudnn5-tf0.12:latest")
 DOCKER_IMAGE_ALIAS=("torchos" "tfos")
 echo -e "\n# myalias." >> ~/.bashrc
 echo -e "alias docker='nvidia-docker'" >> ~/.bashrc
@@ -10,9 +10,9 @@ for i in ${!DOCKER_IMAGE_NAME[*]}
 do
     echo -e "alias ${DOCKER_IMAGE_ALIAS[$i]}='nvidia-docker run --rm -it -u $DOCKER_USER_NAME \\" >> ~/.bashrc
     echo -e "    -v ~/workspace/:/home/$DOCKER_USER_NAME/workspace \\" >> ~/.bashrc
-    echo -e "    ${DOCKER_IMAGE_NAME[$i]}'" >> ~/.bashrc
+    echo -e "    ${DOCKER_IMAGE_NAME[$i]} /bin/bash'" >> ~/.bashrc
     echo -e "alias ${DOCKER_IMAGE_ALIAS[$i]}-root='nvidia-docker run -it \\" >> ~/.bashrc
-    echo -e "    ${DOCKER_IMAGE_NAME[$i]}'" >> ~/.bashrc
+    echo -e "    ${DOCKER_IMAGE_NAME[$i]} /bin/bash'" >> ~/.bashrc
 done
 
 # Set vim.
