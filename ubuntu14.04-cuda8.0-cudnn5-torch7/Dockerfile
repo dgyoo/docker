@@ -33,6 +33,15 @@ RUN apt-get -y install libprotobuf-dev protobuf-compiler && \
 	. /home/$USER_NAME/torch/install/bin/torch-activate && \
 	luarocks install loadcaffe
 
+# Install nccl.
+RUN cd /home/$USER_NAME && \
+    git clone https://github.com/NVIDIA/nccl.git && \
+    cd nccl && \
+    make CUDA_HOME=/usr/local/cuda test && \
+    make PREFIX=/home/$USER_NAME/nccl install
+ENV LD_LIBRARY_PATH /home/$USER_NAME/nccl/lib:${LD_LIBRARY_PATH}
+RUN /home/$USER_NAME/torch/install/bin/luarocks install https://raw.githubusercontent.com/ngimel/nccl.torch/master/nccl-scm-1.rockspec
+
 # Install utils.
 RUN apt-get -y update && \
 	apt-get -y install vim git wget
