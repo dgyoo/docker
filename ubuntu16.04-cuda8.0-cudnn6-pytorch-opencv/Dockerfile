@@ -36,6 +36,9 @@ RUN pip install opencv-python && \
     apt-get update && \
     apt-get install -y libgtk2.0-dev
 
+# Install scikit-image.
+RUN pip install scikit-image
+
 # Set account.
 ENV USER_NAME=dgyoo
 ENV USER_ID=1000

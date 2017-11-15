@@ -31,6 +31,9 @@ RUN git clone https://github.com/pytorch/vision.git && cd vision && pip install 
 WORKDIR /workspace
 RUN chmod -R a+w /workspace
 
+# Install scikit-image.
+RUN pip install scikit-image
+
 # Set account.
 ENV USER_NAME=dgyoo
 ENV USER_ID=1000
