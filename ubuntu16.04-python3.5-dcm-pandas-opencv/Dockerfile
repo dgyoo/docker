@@ -7,7 +7,7 @@ RUN apt-get install -y python3 python3-pip
 RUN pip3 install --upgrade pip
 RUN pip3 install "ipython[all]" && \
     pip3 install ipdb
-RUN pip3 install pandas openpyxl pydicom
+RUN pip3 install pandas openpyxl pydicom pillow
 RUN pip3 install opencv-python && \
     apt-get update && \
     apt-get install -y libgtk2.0-dev
